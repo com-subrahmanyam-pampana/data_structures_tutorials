@@ -30,6 +30,7 @@ function update(students, student) {
 
 function deleteStudent(students, student) {
   students[student.roll_number] = null;
+  /*O(n) */
 }
 
 function access(students, roll_number) {
@@ -44,7 +45,10 @@ function search(students, roll_number) {
 }
 
 function main() {
-  let students = new Array();
+  let students = new Array(); 
+  //Or you can use let students=[]
+  /*We are Passing the reference of students to insert */
+  /*Arrays are called by refrence */
   insert(students, new Student(1, "Subbu", 78));
   insert(students, new Student(2, "Ravi", 95));
   insert(students, new Student(3, "Trump", 87));
@@ -59,9 +63,10 @@ main();
 /*
 Problem with this solution:
 1.
-
-
-2.
+If 100 students are there,we need to allocate the memory for 
+100 students in the array
+2.Let say one student is deleted at 51st position,still that is allocated.So
+this memory is wasted.
 
 
 */
